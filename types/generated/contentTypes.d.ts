@@ -690,8 +690,8 @@ export interface ApiCourseCourse extends Schema.SingleType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    content: Attribute.Blocks & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
+    content: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -723,10 +723,10 @@ export interface ApiHarpHarp extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    description: Attribute.Blocks & Attribute.Required;
     price: Attribute.Decimal;
     image: Attribute.Media & Attribute.Required;
     url: Attribute.UID<'api::harp.harp', 'name'>;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -743,15 +743,16 @@ export interface ApiPostPost extends Schema.CollectionType {
     singularName: 'post';
     pluralName: 'posts';
     displayName: 'Posts';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    content: Attribute.Blocks & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     url: Attribute.UID<'api::post.post', 'title'>;
+    content: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
